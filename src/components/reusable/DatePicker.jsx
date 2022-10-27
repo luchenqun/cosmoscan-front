@@ -182,7 +182,8 @@ const Chevron = styled.div`
  TODO: Decide whether to convert a date into the UTC format.
   Make the date picker return the UTC time zone
  */
-const today = moment().startOf('day').toDate();
+// @todo .add(1, 'days') remove when release
+const today = moment().startOf('day').add(1, 'days').toDate();
 const minDate = moment('2020-06-17').startOf('day').toDate();
 const maxDate = today;
 const handleDateChangeRaw = (e) => {
