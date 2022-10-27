@@ -1,14 +1,14 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
+import API from '../../api';
 import useRequest from '../../hooks/useRequest';
 import WidgetStats from '../../layouts/WidgetStats';
-import API from '../../api';
 import {
-  formatUSD,
-  formatToken,
-  formatPercentValue,
-  formatNum,
   formatChartData,
+  formatNum,
+  formatPercentValue,
+  formatToken,
+  formatUSD,
 } from '../../utils';
 // import Spinner from '../Spinner';
 

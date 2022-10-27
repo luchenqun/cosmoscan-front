@@ -1,11 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
-import AppHeader from '../components/App/AppHeader';
-import AppTopStats from '../components/App/AppTopStats';
 import AppFooter from '../components/App/AppFooter';
+import AppHeader from '../components/App/AppHeader';
 import AppSearchField from '../components/App/AppSearchField';
-import Banner from '../components/Banner';
+import AppTopStats from '../components/App/AppTopStats';
 
 const AppWrapper = styled.div`
   min-height: 100vh;
@@ -24,7 +23,7 @@ const LayoutDefault = ({ children }) => (
     <AppHeader />
     <AppTopStats />
     <AppSearchField />
-    <Banner />
+    {/* <Banner /> */}
 
     <AppContent>{children}</AppContent>
 

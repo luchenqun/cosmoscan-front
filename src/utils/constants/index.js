@@ -22,6 +22,15 @@ export const periodOpts = [
     },
   },
   {
+    label: 'Today',
+    value: {
+      by: 'hour',
+      from: moment().startOf('day').unix(),
+      to: moment().endOf('day').unix(),
+      // to: moment().unix(),
+    },
+  },
+  {
     label: 'Last month',
     value: {
       by: 'day',
@@ -120,6 +129,7 @@ export const selectStyles = {
 };
 
 export const networkList = [
+  { label: 'CARINA', value: 'carina', coinCode: 'AEVMOS' },
   { label: 'COSMOS', value: 'cosmos', coinCode: 'ATOM' },
   { label: 'PERSISTENCE', value: 'persistence', coinCode: 'XPRT' },
   { label: 'BITSONG', value: 'bitsong', coinCode: 'BTSG' },

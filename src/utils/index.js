@@ -141,6 +141,8 @@ export const lastThirtyDays = (() => {
 
 export const changeChain = () => {
   switch (sessionStorage.getItem('chain')) {
+    case 'carina':
+      return process.env.REACT_APP_API_CARINA;
     case 'cosmos':
       return process.env.REACT_APP_API_COSMOS;
     case 'persistence':

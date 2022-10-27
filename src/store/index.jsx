@@ -1,10 +1,10 @@
-import React, { createContext, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { createContext, useMemo, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { networkList } from '../utils/constants';
 
 const initialState = {
-  chain: { label: 'COSMOS', value: 'cosmos', coinCode: 'ATOM' },
+  chain: { label: 'CARINA', value: 'carina', coinCode: 'aevmos' },
 };
 
 const Store = createContext({
