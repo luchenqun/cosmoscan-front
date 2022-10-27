@@ -8,14 +8,13 @@ import { periodOpts } from '../../../utils/constants';
 import { formatDate, formatDateWithTime, formatNum } from '../../../utils';
 import API from '../../../api';
 
-
 const chartName = 'Voting power to veto';
 const yAxisWidth = 40;
 const yTickCount = 10;
 const areaName = chartName;
-const tooltipTxt = '# of top validators who hold 33.4% of total voting power and can veto a proposal';
+const tooltipTxt =
+  '# of top validators who hold 33.4% of total voting power and can veto a proposal';
 const defaultPeriod = periodOpts[1];
-
 
 const VotingPowerToVeto = () => {
   const theme = useContext(ThemeContext);
@@ -27,7 +26,7 @@ const VotingPowerToVeto = () => {
     <ChartContainer
       title={chartName}
       titleTooltip={tooltipTxt}
-      chart={(
+      chart={
         <AreaChart
           areaName={areaName}
           isLoading={res.isLoading}
@@ -41,7 +40,7 @@ const VotingPowerToVeto = () => {
           tooltipLabelFormatter={formatDateWithTime}
           color={color}
         />
-      )}
+      }
     />
   );
 };

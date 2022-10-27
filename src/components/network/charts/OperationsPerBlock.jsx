@@ -5,7 +5,6 @@ import Card from '../../styled/Card';
 import { lastThirtyDays } from '../../../utils';
 import TitleChart from '../../styled/TitleChart';
 
-
 const data = lastThirtyDays.map((e, i) => ({
   x: e,
   y: i * 1000,

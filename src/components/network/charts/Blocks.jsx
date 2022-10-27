@@ -8,7 +8,6 @@ import { periodOpts } from '../../../utils/constants';
 import { formatNum, formatDate, formatDateWithTime } from '../../../utils';
 import API from '../../../api';
 
-
 const chartName = '# of blocks per day/hour';
 const yAxisWidth = 50;
 const yTickCount = 10;
@@ -22,14 +21,14 @@ const Blocks = () => {
   return (
     <ChartContainer
       title={chartName}
-      select={(
+      select={
         <SelectPeriod
           defaultPeriod={defaultPeriod}
           isDisabled={res.isLoading}
           onChange={res.request}
         />
-      )}
-      chart={(
+      }
+      chart={
         <AreaChart
           areaName={areaName}
           isLoading={res.isLoading}
@@ -42,7 +41,7 @@ const Blocks = () => {
           tooltipFormatter={formatNum}
           tooltipLabelFormatter={formatDateWithTime}
         />
-      )}
+      }
     />
   );
 };

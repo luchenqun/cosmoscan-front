@@ -9,7 +9,6 @@ import { periodOpts } from '../../../utils/constants';
 import { formatDate, formatDateWithTime, formatNum } from '../../../utils';
 import API from '../../../api';
 
-
 const chartName = '# of validators per day/hour';
 const yAxisWidth = 30;
 const yTickCount = 10;
@@ -25,14 +24,14 @@ const Validators = () => {
   return (
     <ChartContainer
       title={chartName}
-      select={(
+      select={
         <SelectPeriod
           defaultPeriod={defaultPeriod}
           isDisabled={res.isLoading}
           onChange={res.request}
         />
-      )}
-      chart={(
+      }
+      chart={
         <AreaChart
           areaName={areaName}
           isLoading={res.isLoading}
@@ -47,7 +46,7 @@ const Validators = () => {
           tooltipLabelFormatter={formatDateWithTime}
           color={color}
         />
-      )}
+      }
     />
   );
 };

@@ -7,7 +7,6 @@ import Section from './Section';
 import WidgetStats from '../../../layouts/WidgetStats';
 import { formatNum, formatSeconds } from '../../../utils';
 
-
 // const healths = [
 //   { title: 'Missed blocks', value: '120 777 222 ATOM' },
 //   { title: 'Double sign evidence', value: '120 777 222 ATOM' },
@@ -17,21 +16,18 @@ const SectionHealth = ({ stats }) => {
   const { blockDelay, jailers } = stats;
   return (
     <Section>
-      <Title>
-        Health
-      </Title>
+      <Title>Health</Title>
 
-      <Row
-        xs={1}
-        md={2}
-        lg={3}
-        xl={4}
-      >
+      <Row xs={1} md={2} lg={3} xl={4}>
         <ColStyled>
           <WidgetStats
             title="Block delay"
             isVertical
-            mainInfo={blockDelay ? formatSeconds(blockDelay[blockDelay.length - 1]) : '---'}
+            mainInfo={
+              blockDelay
+                ? formatSeconds(blockDelay[blockDelay.length - 1])
+                : '---'
+            }
             sparklineData={blockDelay ? blockDelay.map((e) => ({ y: +e })) : []}
           />
         </ColStyled>
@@ -39,7 +35,9 @@ const SectionHealth = ({ stats }) => {
           <WidgetStats
             title="Total jailed"
             isVertical
-            mainInfo={jailers ? formatNum(Number(jailers[jailers.length - 1])) : '---'}
+            mainInfo={
+              jailers ? formatNum(Number(jailers[jailers.length - 1])) : '---'
+            }
             sparklineData={jailers ? jailers.map((e) => ({ y: +e })) : []}
           />
         </ColStyled>
@@ -54,6 +52,5 @@ SectionHealth.propTypes = {
 SectionHealth.defaultProps = {
   stats: {},
 };
-
 
 export default SectionHealth;

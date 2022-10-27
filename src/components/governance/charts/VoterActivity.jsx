@@ -7,7 +7,6 @@ import { formatId, formatNum } from '../../../utils';
 import SelectCustom from '../../SelectCustom';
 import { voterTypes } from '../../../utils/constants';
 
-
 const chartName = 'Voter activity';
 const yAxisWidth = 40;
 const yAxisTickCount = 10;
@@ -24,11 +23,11 @@ const filterVoterActivity = (votersType, proposal) => {
       return proposal.voters;
   }
 };
-const handleProposals = (proposals, voterType) => proposals.map((proposal) => ({
-  name: proposal.name,
-  dataPiece: filterVoterActivity(voterType, proposal),
-}));
-
+const handleProposals = (proposals, voterType) =>
+  proposals.map((proposal) => ({
+    name: proposal.name,
+    dataPiece: filterVoterActivity(voterType, proposal),
+  }));
 
 const VoterActivity = ({ isLoading, data }) => {
   const theme = useContext(ThemeContext);
@@ -47,14 +46,14 @@ const VoterActivity = ({ isLoading, data }) => {
     <ChartContainer
       title={chartName}
       titleTooltip={tooltipTxt}
-      select={(
+      select={
         <SelectCustom
           opts={voterTypes}
           defaultOpt={voterTypes[0]}
           onChange={handleChange}
         />
-      )}
-      chart={(
+      }
+      chart={
         <BarChart
           isLoading={isLoading}
           data={proposals}
@@ -67,7 +66,7 @@ const VoterActivity = ({ isLoading, data }) => {
           barColor={theme.navyBlue}
           barName={barName}
         />
-      )}
+      }
     />
   );
 };

@@ -9,7 +9,6 @@ import Card from '../../styled/Card';
 import TitleChart from '../../styled/TitleChart';
 // import { noString } from '../../../utils';
 
-
 const AccordionToggle = styled(Accordion.Toggle)`
   border: none;
   text-align: left;
@@ -17,7 +16,7 @@ const AccordionToggle = styled(Accordion.Toggle)`
   transition: background-color 0.2s;
   display: flex;
   justify-content: space-between;
-  
+
   ${({ theme: { blue4 } }) => css`
     &:hover {
       background-color: ${blue4};
@@ -33,34 +32,32 @@ const parseParagraphs = (string) => {
   return str;
 };
 
-const linkify = (text) => ReactDOMServer.renderToStaticMarkup(
-  <Linkify
-    componentDecorator={(decoratedHref, decoratedText, key) => (
-      <a
-        target="blank"
-        rel="noopener noreferrer"
-        href={decoratedHref}
-        key={key}
-      >
-        {decoratedText}
-      </a>
-    )}
-  >
-    {text}
-  </Linkify>,
-);
+const linkify = (text) =>
+  ReactDOMServer.renderToStaticMarkup(
+    <Linkify
+      componentDecorator={(decoratedHref, decoratedText, key) => (
+        <a
+          target="blank"
+          rel="noopener noreferrer"
+          href={decoratedHref}
+          key={key}
+        >
+          {decoratedText}
+        </a>
+      )}
+    >
+      {text}
+    </Linkify>,
+  );
 
 const Description = ({ title, desc, className }) => {
   const [currEventKey, setCurrEventKey] = useState(null);
-
 
   return (
     <Accordion className={className} onSelect={setCurrEventKey}>
       <Card>
         <Card.Header as={AccordionToggle} eventKey="0">
-          <TitleChart>
-            { title }
-          </TitleChart>
+          <TitleChart>{title}</TitleChart>
           <FontAwesomeIcon
             icon={currEventKey === '0' ? 'chevron-up' : 'chevron-down'}
           />
@@ -68,7 +65,9 @@ const Description = ({ title, desc, className }) => {
         <Accordion.Collapse eventKey="0">
           <Card.Body>
             <div
-              dangerouslySetInnerHTML={{ __html: parseParagraphs(linkify(desc)) }}
+              dangerouslySetInnerHTML={{
+                __html: parseParagraphs(linkify(desc)),
+              }}
               className="w-75"
             />
           </Card.Body>

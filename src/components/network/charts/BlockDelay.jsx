@@ -9,7 +9,6 @@ import { periodOpts } from '../../../utils/constants';
 import { formatDate, formatDateWithTime, formatSeconds } from '../../../utils';
 import API from '../../../api';
 
-
 const chartName = 'Block delay';
 const yAxisWidth = 80;
 const yTickCount = 10;
@@ -25,14 +24,14 @@ const BlockDelay = () => {
   return (
     <ChartContainer
       title={chartName}
-      select={(
+      select={
         <SelectPeriod
           defaultPeriod={defaultPeriod}
           isDisabled={res.isLoading}
           onChange={res.request}
         />
-      )}
-      chart={(
+      }
+      chart={
         <AreaChart
           areaName={areaName}
           isLoading={res.isLoading}
@@ -46,7 +45,7 @@ const BlockDelay = () => {
           tooltipLabelFormatter={formatDateWithTime}
           color={color}
         />
-      )}
+      }
     />
   );
 };
